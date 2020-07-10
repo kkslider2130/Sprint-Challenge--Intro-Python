@@ -109,8 +109,10 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
         for row in reader:
             cities.append(City(row[0], float(row[3]), float(row[4])))
     for c in cities:
-        if c.lat <= large_lat and c.lat >= small_lat and c.lon <= large_long and c.lon >= large_long:
+        if c.lat <= large_lat and c.lat >= small_lat and c.lon <= large_long and c.lon >= small_long:
             within.append(c)
+            print(f'**********{c.name}, {c.lat}, {c.lon}')
+    print(small_lat, small_long, large_lat, large_long)
 
     # TODO Ensure that the lat and lon valuse are all floats
     # Go through each city and check to see if it falls within
